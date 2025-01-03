@@ -1,0 +1,66 @@
+/* app.component.css */
+body {
+   font-family: 'Arial', sans-serif;
+   background-color: #f8f9fa;
+   padding: 40px;
+   margin: 0;
+ }
+ 
+ .language-container {
+   max-width: 450px;
+   margin: 20px auto;
+   background-color: #fff;
+   padding: 30px;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   text-align: center;
+ }
+ 
+ .language-container h2 {
+   color: #333;
+   font-size: 24px;
+   margin-bottom: 20px;
+ }
+ 
+ .current-language {
+   font-size: 18px;
+   color: #555;
+   margin-bottom: 30px;
+   font-weight: 600;
+ }
+ 
+ .language-buttons .btn {
+   width: 100%;
+   padding: 12px;
+   font-size: 16px;
+   border-radius: 8px;
+   text-align: center;
+   transition: all 0.3s ease;
+ }
+ 
+ .language-buttons .btn-primary {
+   background-color: #007bff;
+   border-color: #007bff;
+   color: #fff;
+ }
+ 
+ .language-buttons .btn-primary:hover {
+   background-color: #0056b3;
+   border-color: #004085;
+ }
+ 
+ .language-buttons .mb-3 {
+   margin-bottom: 15px;
+ }
+ 
+ @media (max-width: 576px) {
+   .language-container {
+     padding: 20px;
+   }
+   
+   .language-buttons .btn {
+     font-size: 14px;
+     padding: 10px;
+   }
+ }
+ 

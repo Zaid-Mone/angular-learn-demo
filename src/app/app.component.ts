@@ -1,13 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './core/layout/header/header.component';
+import { CommonService } from './core/services/common.service';
+import { HttpClient } from '@angular/common/http';
+import { catchError, of, retry } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,HeaderComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'angular-learn-demo';
+export class AppComponent implements OnInit{
+    constructor(private _commonService:CommonService,private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchProfile();
+  }
+
+    userProfile: any;
+
+
+
+  changeLanguage(lang: string) {
+    this._commonService.changeLanguage(lang);
+    
+  }
+
+
+  fetchProfile() {
+debugger;
+
+this._commonService.fetchProfile();
+this.userProfile = this._commonService.userProfileSignal();
+
+  }
+
+  get currentLanguage() {
+    return this._commonService.lang;
+  }
+
 }
