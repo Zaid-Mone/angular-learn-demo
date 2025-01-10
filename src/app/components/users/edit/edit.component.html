@@ -1,0 +1,99 @@
+<div
+  class="mt-5"
+  [ngStyle]="{ direction: this._commonService.lang === 'ar' ? 'rtl' : 'ltr' }"
+>
+  <div *ngIf="!(user$ | async); else user">
+    <app-spinner></app-spinner>
+  </div>
+
+  <ng-template #user>
+    <div *ngIf="user$ | async as userProfile; else noProfile">
+      <div *ngIf="userProfile">
+        <div *ngFor="let profile of userProfile; let i = index">
+          <h1>
+            {{ this._commonService.lang === "ar" ? "الاسم" : "Name" }} :{{
+              profile.name
+            }}
+          </h1>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar" ? "اسم المستخدم" : "Username"
+              }}
+              :</strong
+            >
+            {{ profile.username }}
+          </p>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar"
+                  ? "البريد الالكتروني"
+                  : "Email"
+              }}
+              :</strong
+            >
+            {{ profile.email }}
+          </p>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar" ? "العنوان" : "Address"
+              }}
+              :</strong
+            >
+            {{ profile.address.street }}, {{ profile.address.suite }},
+            {{ profile.address.city }},
+            {{ profile.address.zipcode }}
+          </p>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar" ? "الهاتف" : "Phone"
+              }}
+              :</strong
+            >
+            {{ profile.phone }}
+          </p>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar" ? "الموقع" : "Website"
+              }}
+              :</strong
+            >
+            <a href="http://{{ profile.website }}" target="_blank">{{
+              profile.website
+            }}</a>
+          </p>
+
+          <p>
+            <strong
+              >{{
+                this._commonService.lang === "ar" ? "الشركة" : "Company"
+              }}
+              :</strong
+            >
+            {{ profile.company.name }}
+          </p>
+          <hr *ngIf="i !== userProfile.length - 1" />
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noProfile>
+      <p>
+        {{
+          this._commonService.lang === "ar"
+            ? "لا يوجد بيانات متاحة"
+            : "no user found"
+        }}
+      </p>
+    </ng-template>
+  </ng-template>
+</div>

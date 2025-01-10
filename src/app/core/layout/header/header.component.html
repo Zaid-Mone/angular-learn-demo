@@ -1,6 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary"
+  [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'"
+>
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" aria-current="page" [routerLink]="['/']">{{
+      currentLanguage == "ar" ? "زيد" : "Zaid"
+    }}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,20 +18,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <li class="nav-item">
-           <a
-             class="nav-link active"
-             aria-current="page"
-             [routerLink]="['/user-form']"
-             >user-form</a
-           >
-         </li>
-       </ul> -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="mt-2">
-          <p class="mb-0">Language: {{ currentLanguage }}</p>
+      <ul
+        class="navbar-nav mb-2 mb-lg-0"
+        [ngClass]="{ 'me-auto': currentLanguage !== 'ar' }"
+      >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">{{
+            currentLanguage == "ar" ? "الصفحة الرئيسية" : "Home"
+          }}</a>
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['/users']"
+          >
+            {{ currentLanguage == "ar" ? " المستخدمين" : " Users" }}
+          </a>
+        </li>
+        <li class="mt-2">
+          ||
+          {{
+            currentLanguage == "ar" ? "اللغة الحالية:" : "Current Language :"
+          }}
+          {{ currentLanguage == "ar" ? "العربية" : "English" }}
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav mb-2 mb-lg-0 ml-5"
+        [ngClass]="{ 'me-auto': currentLanguage == 'ar' }"
+        style="cursor: pointer"
+      >
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"

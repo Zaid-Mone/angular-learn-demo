@@ -33,7 +33,7 @@ export class CommonService {
 
 
   fetchProfile() {
-debugger;
+
     console.log('trigger fetchProfile');
 
     this.http

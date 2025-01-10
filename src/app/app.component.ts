@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
     constructor(private _commonService:CommonService,private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.fetchProfile();
+  
   }
 
     userProfile: any;
@@ -30,16 +30,11 @@ export class AppComponent implements OnInit{
   }
 
 
-  fetchProfile() {
-debugger;
-
-this._commonService.fetchProfile();
-this.userProfile = this._commonService.userProfileSignal();
-
-  }
 
   get currentLanguage() {
     return this._commonService.lang;
   }
+
+
 
 }

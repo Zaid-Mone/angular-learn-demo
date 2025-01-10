@@ -1,11 +1,11 @@
-<app-header />
+<app-header [_lang]="currentLanguage"/>
 
 <!-- <p>The current lanugae is : {{ currentLanguage }}</p>
 <a (click)="changeLanguage('en')" class="btn btn-primary">change to english</a>
 <br />
 <a (click)="changeLanguage('ar')" class="btn btn-primary">change to arabic</a> -->
 
-<div class="language-container">
+<!-- <div class="language-container">
   <div class="current-language">
     <p>
       The current language is:
@@ -54,6 +54,8 @@
   <hr />
 </div>
 
-<button (click)="fetchProfile()">Fetch Profile</button>
+<button (click)="fetchProfile()">Fetch Profile</button> -->
 
-<router-outlet />
+<div class="container">
+  <router-outlet />
+</div>

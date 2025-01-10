@@ -1,0 +1,12 @@
+.dropdown-menu {
+   right: 0;
+ }
+ 
+ html[dir='rtl'] .dropdown-menu {
+   left: 0; 
+ }
+ 
+ html[dir='ltr'] .dropdown-menu {
+   right: 0; 
+ }
+ 
